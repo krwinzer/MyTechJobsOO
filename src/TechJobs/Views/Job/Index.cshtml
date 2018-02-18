@@ -1,27 +1,27 @@
 ﻿
-@model TechJobs.ViewModels.JobViewModel
+@model TechJobs.Models.Job
 
 
     <table class="job-listing">
         <tr>
             <th>Name</th>
-            <td>@Job.Name</td>
+            <td>@Model.Name</td>
         </tr>
         <tr>
             <th>Employer</th>
-            <td>@Job.Employer</td>
+            <td>@Model.Employer</td>
         </tr>
         <tr>
             <th>Location</th>
-            <td>@Job.Location</td>
+            <td>@Model.Location</td>
         </tr>
         <tr>
             <th>Core Competency</th>
-            <td>@Job.CoreCompetency</td>
+            <td>@Model.CoreCompetency</td>
         </tr>
         <tr>
             <th>Position Type</th>
-            <td>@Job.PositionType</td>
+            <td>@Model.PositionType</td>
         </tr>
     
     </table>
