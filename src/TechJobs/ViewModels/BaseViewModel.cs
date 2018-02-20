@@ -13,6 +13,18 @@ namespace TechJobs.ViewModels
 
         // View title
         public string Title { get; set; } = "";
-    };
+    
+
+        public BaseViewModel()
+        {
+            Columns = new List<JobFieldType>();
+
+            foreach (JobFieldType enumVal in Enum.GetValues(typeof(JobFieldType)))
+            {
+                Columns.Add(enumVal);
+            }
+        }
+    }
 }
+
 

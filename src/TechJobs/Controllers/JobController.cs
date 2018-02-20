@@ -40,7 +40,7 @@ namespace TechJobs.Controllers
             return View(newJobViewModel);
         }
 
-     
+
 
         [HttpPost]
         public IActionResult New(NewJobViewModel newJobViewModel)
@@ -52,14 +52,24 @@ namespace TechJobs.Controllers
             {
                 Job newJob = new Job
                 {
-                    Name = ;
+                    Name = newJobViewModel.Name,
+                    Employer = jobData.Employers.Find(newJobViewModel.EmployerID),
+                    Location = jobData.Locations.Find(newJobViewModel.LocationID),
+                    CoreCompetency = jobData.CoreCompetencies.Find(newJobViewModel.CoreCompetencyID),
+                    PositionType = jobData.PositionTypes.Find(newJobViewModel.PositionTypeID)
 
                 };
-            return Redirect(string.Format("/Job?={0}", id));
-            }
+                jobData.Jobs.Add(newJob);
 
-            return View(newJobViewModel);
+                string stupidJob = string.Format("/Job?={0}", newJob.ID);
+                return Redirect(stupidJob);
+            }
+            else
+            {
+                return View(newJobViewModel);
+            }
             
+
         }
     }
-
+}
